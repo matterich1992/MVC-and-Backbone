@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <title>Cat Clicker</title>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<style>
+		body {
+			background-color: pink;
+				}
+	</style>
+
+</head>
+	<body>
+	  <div class="cat-list">
+	   <ol>
+	     <li id = "whiskers">Whiskers</li>
+	     <li id = "mittens">Mittens</li>
+	   </ol>
+	  </div>
+
+
+
+	 <div id = "cat1">
+		<h1>Whiskers</h1>
+			<img class="whiskersimg" src = "cats-politics.jpg" alt="cat" height='300' width='400'>
+    		   <h3>Whisker Clicks: <span class="counter1"></span></h3>
+    	</div>
+    
+     <div id="cat2">
+     <h1>Mittens</h1>
+     	<img class="mittensimg"src = "catTwo.jpg" alt= 'cat2'>
+     	<h3>Mittens Clicks: <span class="counter2"></span></h3>
+     </div>
+      
+	
+
+	<script> 
+	
+	var count1 =0;
+	var count2 =0;
+	
+	$('#cat1').hide();
+	$('#cat2').hide();
+	
+	$('#whiskers, #cat1').on('click', function(){
+		console.log("clicked Whiskers");
+		$('#cat2').hide();
+		$('#cat1').show();
+		$('.counter1').html(count1++);
+
+
+	});
+
+
+
+	$('#mittens, #cat2').on('click', function(){
+		console.log('clicked Mittens')
+		$('#cat1').hide();
+		$('#cat2').show();
+		$('.counter2').text(count2++);
+
+	});
+
+
+
+
+
+	</script>
+	<body>
+
+</html>
