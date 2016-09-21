@@ -12,7 +12,7 @@ A Vehicle should have a method called start(), which logs a message in the conso
 var Vehicle = Backbone.Model.extend({
 
 	idAttribute: "registrationNumber",
-	urlRoot: '/api/vehicles'
+	urlRoot: '/api/vehicles',
 
 		validate: function(attrs){
 			if(!attrs.registrationNumber){
@@ -26,4 +26,36 @@ var Vehicle = Backbone.Model.extend({
 });
 
 //Derive a Backbone model from Vehicle and call it "Car";
-var Car = Vehicle.extend({});
+var Car = Vehicle.extend({
+	start: function(){
+		console.log("car with registration number: " + this.get('registrationNumber') + ", started.");
+	}
+});
+
+var car = new Car({
+	registrationNumber: "X12345",
+	color: 'red'
+});
+// car.isValid
+// car.toJSON
+// car.get
+// car.unset
+// car.clear
+// car.has
+
+//Remove the RN attr
+
+car.unset("registrationNumber");
+
+if(!car.isValid()){
+	console.log(car.validationError);
+}
+
+car.set("registrationNumber","X12345");
+
+if(!car.isValid()){
+	console.log(car.validationError);
+}
+
+car.start();
+
